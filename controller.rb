@@ -1,17 +1,16 @@
 require('sinatra')
 require('sinatra/contrib/all')
-#require_relative('models/ .rb')
+require_relative('models/game.rb')
 
-get '/rock/scissors' do
-  return "THE ROCK IS COOKINNN"
-end
-
-# get '/game/:hand1/:hand2' do
-#   game = Game.new(params[:hand1],
-#   params[:hand2])
-#   #@hand = hand.add
-#   #erb(:result)
+# get '/rock/scissors' do
+#   return "THE ROCK IS COOKINNN"
 # end
+
+get '/game/:player1/:player2' do
+  game = Game.new(params[:player1],
+  params[:player2])
+  return game.game_result
+end
 
 # get '/scissors/rock' do
 #   return "Rock wins"
